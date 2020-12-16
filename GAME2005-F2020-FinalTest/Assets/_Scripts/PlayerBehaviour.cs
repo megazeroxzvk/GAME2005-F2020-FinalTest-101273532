@@ -42,8 +42,7 @@ public class PlayerBehaviour : MonoBehaviour
                 // move right
                 body.velocity = playerCam.transform.right * speed * Time.deltaTime;
             }
-
-            if (Input.GetAxisRaw("Horizontal") < 0.0f)
+            else if (Input.GetAxisRaw("Horizontal") < 0.0f)
             {
                 // move left
                 body.velocity = -playerCam.transform.right * speed * Time.deltaTime;
@@ -54,8 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
                 // move forward
                 body.velocity = playerCam.transform.forward * speed * Time.deltaTime;
             }
-
-            if (Input.GetAxisRaw("Vertical") < 0.0f) 
+            else if (Input.GetAxisRaw("Vertical") < 0.0f) 
             {
                 // move Back
                 body.velocity = -playerCam.transform.forward * speed * Time.deltaTime;
