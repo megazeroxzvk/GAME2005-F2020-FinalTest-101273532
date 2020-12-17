@@ -50,7 +50,7 @@ public class CollisionManager : MonoBehaviour
                 {
                     CheckSphereAABB(sphere, cube);
                 }
-                
+
             }
         }
 
@@ -98,12 +98,12 @@ public class CollisionManager : MonoBehaviour
             s.collisionNormal = face;
             //s.isColliding = true;
 
-            
+
             Reflect(s);
         }
 
     }
-    
+
     // This helper function reflects the bullet when it hits an AABB face
     private static void Reflect(BulletBehaviour s)
     {
@@ -153,7 +153,7 @@ public class CollisionManager : MonoBehaviour
                     face = faces[i];
                 }
             }
-            
+
             // set the contact properties
             contactB.face = face;
             contactB.penetration = penetration;
@@ -176,12 +176,12 @@ public class CollisionManager : MonoBehaviour
                     a.gameObject.GetComponent<RigidBody3D>().Stop();
                     a.isGrounded = true;
                 }
-                
+
 
                 // add the new contact
                 a.contacts.Add(contactB);
                 a.isColliding = true;
-                
+
             }
         }
         else

@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityScale: 1
   mass: 1
-  bodyType: 1
+  bodyType: 0
   timer: 0
   isFalling: 0
   velocity: {x: 0, y: 0, z: 0}
@@ -847,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityScale: 1
   mass: 1
-  bodyType: 1
+  bodyType: 0
   timer: 0
   isFalling: 0
   velocity: {x: 0, y: 0, z: 0}
