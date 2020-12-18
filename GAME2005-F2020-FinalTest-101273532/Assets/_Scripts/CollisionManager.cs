@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 
 [System.Serializable]
 public class CollisionManager : MonoBehaviour
@@ -10,19 +14,29 @@ public class CollisionManager : MonoBehaviour
     //public BulletBehaviour[] spheres;
     public BulletBehaviour[] bulletCubes;       //  <<----- bullets are now cubes
 
+   
     private static Vector3[] faces;
+
+    public static bool victoryCondition;
+
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         cubes = FindObjectsOfType<CubeBehaviour>();
-
+        victoryCondition = false;
         faces = new Vector3[]
         {
             Vector3.left, Vector3.right,
             Vector3.down, Vector3.up,
             Vector3.back , Vector3.forward
         };
+
+      
     }
 
     // Update is called once per frame
@@ -167,6 +181,7 @@ public class CollisionManager : MonoBehaviour
     public static void CheckAABBs(CubeBehaviour a, CubeBehaviour b)
     {
         Contact contactB = new Contact(b);
+        Contact contactA = new Contact(a);
 
         if ((a.min.x <= b.max.x && a.max.x >= b.min.x) &&
             (a.min.y <= b.max.y && a.max.y >= b.min.y) &&
@@ -219,8 +234,9 @@ public class CollisionManager : MonoBehaviour
                     a.isGrounded = true;
                 }
 
+                // Final Exam Requirement
                 // For Movables
-                if (contactB.cube.tag == "Movable")
+                if (contactB.cube.tag == "Movable" || contactB.cube.tag == "ThrowBlock")
                 {
                     if (contactB.face == Vector3.forward)
                     {
@@ -270,6 +286,14 @@ public class CollisionManager : MonoBehaviour
 
                         //Debug.Log("Back Side of movable");
                     }
+                }
+                
+
+                if (contactA.cube.tag == "ThrowBlock" && contactB.cube.tag == "LandingZone" ||
+                    contactA.cube.tag == "LandingZone" && contactB.cube.tag == "ThrowBlock"
+                )
+                {
+                    victoryCondition = true;
                 }
 
                 // add the new contact
