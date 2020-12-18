@@ -177,6 +177,58 @@ public class CollisionManager : MonoBehaviour
                     a.isGrounded = true;
                 }
 
+                // For Movables
+                if (contactB.cube.tag == "Movable")
+                {
+                    if (contactB.face == Vector3.forward)
+                    {
+                        // Move back since you are being pushed from forward using penetration
+
+                        contactB.cube.transform.position = new Vector3(
+                            contactB.cube.transform.position.x,
+                            contactB.cube.transform.position.y,
+                            contactB.cube.transform.position.z + contactB.penetration
+                        );
+
+                        //Debug.Log("Forward Side of movable");
+                    }
+
+                    if (contactB.face == Vector3.left)
+                    {
+                        // Move to the right ??..
+                        contactB.cube.transform.position = new Vector3(
+                            contactB.cube.transform.position.x - contactB.penetration,
+                            contactB.cube.transform.position.y,
+                            contactB.cube.transform.position.z
+                        );
+
+                        //Debug.Log("Left Side of movable");
+
+                    }
+
+                    if (contactB.face == Vector3.right)
+                    {
+
+                        contactB.cube.transform.position = new Vector3(
+                            contactB.cube.transform.position.x + contactB.penetration,
+                            contactB.cube.transform.position.y,
+                            contactB.cube.transform.position.z
+                        );
+
+                        //Debug.Log("Right Side of movable");
+                    }
+
+                    if (contactB.face == Vector3.back)
+                    {
+                        contactB.cube.transform.position = new Vector3(
+                            contactB.cube.transform.position.x,
+                            contactB.cube.transform.position.y,
+                            contactB.cube.transform.position.z - contactB.penetration
+                        );
+
+                        //Debug.Log("Back Side of movable");
+                    }
+                }
 
                 // add the new contact
                 a.contacts.Add(contactB);

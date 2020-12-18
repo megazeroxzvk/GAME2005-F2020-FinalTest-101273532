@@ -1,5 +1,4 @@
-﻿ 
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime;
 using UnityEditor;
@@ -47,8 +46,8 @@ public class PlayerBehaviour : MonoBehaviour
         //Debug.Log("Horizontal x, 0 ,z = " + horizontal);
         vertical = new Vector3(playerCam.transform.forward.x, 0.0f, playerCam.transform.forward.z);
         //Debug.Log("Vertical x, 0 ,z = " + horizontal);
-        
-        
+
+
         // bug - player can jump when in air!! <-- still present
 
 
@@ -82,16 +81,15 @@ public class PlayerBehaviour : MonoBehaviour
                 velocity += -vertical.normalized * speed * 0.125f * Time.deltaTime;
             }
 
+
+            body.velocity = Vector3.Lerp(body.velocity, Vector3.zero, 0.9f);
+            body.velocity = new Vector3(body.velocity.x, 0.0f, body.velocity.z); // remove y
+
             // Trigger Jump!
             if (Input.GetAxisRaw("Jump") > 0.0f)
             {
-
-                body.velocity = Vector3.Lerp(body.velocity, Vector3.zero, 0.9f);
-
-                body.velocity = new Vector3(body.velocity.x, 0.0f, body.velocity.z); // remove y
-                body.velocity = transform.up * speed * 0.1f * Time.deltaTime;
                 //Debug.Log("Jump Triggered!");
-
+                body.velocity = transform.up * speed * 0.1f * Time.deltaTime;
                 // fix.. update the transform position with jump independently
                 transform.position += body.velocity;
             }
@@ -127,10 +125,10 @@ public class PlayerBehaviour : MonoBehaviour
                 //Debug.Log("In Air movement to back");
             }
         }
-        
+
         // Update position with the calculated velocity
         transform.position += velocity;
-        
+
         // Reset velocity or else it will be added and will increment automatically
         velocity = Vector3.zero;
     }
