@@ -24,7 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Camera playerCam;
 
     // new velocity
-    private Vector3 velocity = Vector3.zero, horizontal = Vector3.zero, vertical = Vector3.zero;
+    private Vector3 velocity = Vector3.zero, horizontal = Vector3.zero, vertical = Vector3.zero, depth = Vector3.zero;
 
     void start()
     {
@@ -55,7 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Debug.Log("Body Velocity = " + body.velocity.magnitude);
         //Debug.Log("Body Acceleration = " + body.acceleration);
 
-        if (isGrounded)
+        if (isGrounded)     //only works when on ground
         {
             // perform this check to avoid jumping when already in air...
             if (Input.GetAxisRaw("Horizontal") > 0.0f)
@@ -81,21 +81,23 @@ public class PlayerBehaviour : MonoBehaviour
                 velocity += -vertical.normalized * speed * 0.125f * Time.deltaTime;
             }
 
-            body.velocity = Vector3.Lerp(body.velocity, Vector3.zero, 0.9f);
-            body.velocity = new Vector3(body.velocity.x, 0.0f, body.velocity.z); // remove y
-
             // Trigger Jump!
             if (Input.GetAxisRaw("Jump") > 0.0f)
             {
-                body.velocity = transform.up * speed * 0.1f * Time.deltaTime;
-                // Debug.Log("Jump Triggered!");
-            }
 
-            transform.position += body.velocity;
+                body.velocity = Vector3.Lerp(body.velocity, Vector3.zero, 0.9f);
+
+                body.velocity = new Vector3(body.velocity.x, 0.0f, body.velocity.z); // remove y
+                body.velocity = transform.up * speed * 0.1f * Time.deltaTime;
+                //Debug.Log("Jump Triggered!");
+
+                // fix.. update the transform position with jump independently
+                transform.position += body.velocity;
+            }
             // Debug.Log("Body Velocity = " + body.velocity);
 
         }
-        else        // While in air...
+        else        // Works when in air
         {
             // perform this check to avoid jumping when already in air...
             if (Input.GetAxisRaw("Horizontal") > 0.0f)
