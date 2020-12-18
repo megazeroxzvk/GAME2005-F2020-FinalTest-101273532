@@ -36,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _Fire();
         _Move();
+        _CheckForQButtonInput();
         //Debug.Log("Y velocity - " + body.velocity.y);
     }
 
@@ -61,7 +62,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") > 0.0f)
             {
                 // move right
-                velocity += horizontal.normalized * speed * 0.1f * Time.deltaTime;
+                velocity += horizontal.normalized * speed * 0.125f * Time.deltaTime;
 
             }
             else if (Input.GetAxisRaw("Horizontal") < 0.0f)
@@ -159,4 +160,15 @@ public class PlayerBehaviour : MonoBehaviour
         isGrounded = cube.isGrounded;
     }
 
+    private void _CheckForQButtonInput()
+    {
+        //Take Q button for going back to Main Menu
+        if (Input.GetKeyDown("q"))
+        {
+            Debug.Log("Q Button Pressed");
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
+            }
+        }
+    }
 }
