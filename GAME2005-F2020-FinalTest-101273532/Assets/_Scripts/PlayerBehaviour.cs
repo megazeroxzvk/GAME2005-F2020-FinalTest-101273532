@@ -22,12 +22,16 @@ public class PlayerBehaviour : MonoBehaviour
     public CubeBehaviour cube;
     public Camera playerCam;
 
+    private bool sceneActive = false;
+
     // new velocity
     private Vector3 velocity = Vector3.zero, horizontal = Vector3.zero, vertical = Vector3.zero, depth = Vector3.zero;
 
-    void start()
+    void Start()
     {
-
+        //Debug.Log("Started");
+        gameObject.GetComponent<RigidBody3D>().enabled = false;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -36,6 +40,11 @@ public class PlayerBehaviour : MonoBehaviour
         _Fire();
         _Move();
         _CheckForQButtonInput();
+
+        if (!sceneActive)
+        {
+            _StartTheScene();
+        }
         //Debug.Log("Y velocity - " + body.velocity.y);
     }
 
@@ -160,10 +169,21 @@ public class PlayerBehaviour : MonoBehaviour
         //Take Q button for going back to Main Menu
         if (Input.GetKeyDown("q"))
         {
-            Debug.Log("Q Button Pressed");
+            //Debug.Log("Q Button Pressed");
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
             }
+        }
+    }
+
+    private void _StartTheScene()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            //Debug.Log("P Button Pressed");
+            gameObject.GetComponent<RigidBody3D>().enabled = true;
+            Time.timeScale = 1;
+            sceneActive = true;
         }
     }
 }
