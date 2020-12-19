@@ -215,8 +215,7 @@ public class CollisionManager : MonoBehaviour
             contactB.face = face;
             contactB.penetration = penetration;
 
-
-            // check if contact does not exist
+           // check if contact does not exist
             if (!a.contacts.Contains(contactB))
             {
                 // remove any contact that matches the name but not other parameters
@@ -299,6 +298,8 @@ public class CollisionManager : MonoBehaviour
                 // add the new contact
                 a.contacts.Add(contactB);
                 a.isColliding = true;
+
+                
 
             }
         }

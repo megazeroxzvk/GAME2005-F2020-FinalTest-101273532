@@ -48,9 +48,6 @@ public class PlayerBehaviour : MonoBehaviour
         //Debug.Log("Vertical x, 0 ,z = " + horizontal);
 
 
-        // bug - player can jump when in air!! <-- still present
-
-
         // Debug
         //Debug.Log("Body Velocity = " + body.velocity.magnitude);
         //Debug.Log("Body Acceleration = " + body.acceleration);

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 91705214}
   - component: {fileID: 91705213}
   m_Layer: 5
-  m_Name: Text
+  m_Name: QButtonHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,6 +295,7 @@ RectTransform:
   - {fileID: 91705212}
   - {fileID: 1256817710}
   - {fileID: 756790298}
+  - {fileID: 1517915778}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -621,7 +622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536637367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.22, y: 16.248, z: 2.33}
+  m_LocalPosition: {x: 26.06, y: 16.471, z: 0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623823100}
@@ -985,7 +986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613454532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.73, y: 14.1, z: -0.222}
+  m_LocalPosition: {x: 28.73, y: 14.1, z: -5.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1856338925}
@@ -1391,8 +1392,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893925093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.077, y: 16.574486, z: 0.43898717}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 17.75, y: 23.46, z: 11.25}
+  m_LocalScale: {x: 4.5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 623823100}
   m_RootOrder: 0
@@ -1433,7 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityScale: 1
   mass: 1
-  bodyType: 1
+  bodyType: 0
   timer: 0
   isFalling: 0
   velocity: {x: 0, y: 0, z: 0}
@@ -1556,7 +1557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031056705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 20, z: 9.82}
+  m_LocalPosition: {x: 15.92, y: 20, z: 0.32}
   m_LocalScale: {x: 4.5, y: 1.2, z: 5.5}
   m_Children: []
   m_Father: {fileID: 623823100}
@@ -1680,7 +1681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052724107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.0315, y: 21.625486, z: 9.758986}
+  m_LocalPosition: {x: 17.91, y: 26.79, z: 11.241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623823100}
@@ -1825,7 +1826,7 @@ GameObject:
   - component: {fileID: 1101564117}
   m_Layer: 0
   m_Name: BlockA_3
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1866,7 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityScale: 1
   mass: 1
-  bodyType: 1
+  bodyType: 0
   timer: 0
   isFalling: 0
   velocity: {x: 0, y: 0, z: 0}
@@ -1928,7 +1929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101564116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.91, y: 15.81, z: 0.43898717}
+  m_LocalPosition: {x: 15.493, y: 21.099, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1856338925}
@@ -2134,7 +2135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170046214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.69, y: 18.477, z: 4.93}
+  m_LocalPosition: {x: 21.76, y: 18.477, z: 0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1856338925}
@@ -2293,6 +2294,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256817709}
+  m_CullTransparentMesh: 0
+--- !u!1 &1517915777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517915778}
+  - component: {fileID: 1517915780}
+  - component: {fileID: 1517915779}
+  m_Layer: 5
+  m_Name: GameplayHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1517915778
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517915777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 200664764}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -130, y: -40}
+  m_SizeDelta: {x: 250, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1517915779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517915777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.34117648, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Reach the top most platform by rearranging the cubes and drop the cube
+    from there for winning!
+--- !u!222 &1517915780
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517915777}
   m_CullTransparentMesh: 0
 --- !u!1 &1856338924
 GameObject:
